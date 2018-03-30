@@ -1,10 +1,10 @@
 const sql = require('mssql');
 
 const config = {
-    user: 'monitor',
-    password: 'VjYbR784',
-    server: 'db05',
-    database: 'skat.register',
+    user: '',
+    password: '',
+    server: '',
+    database: '',
  
     options: {
 //        encrypt: true // Use this if you're on Windows Azure

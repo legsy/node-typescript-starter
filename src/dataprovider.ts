@@ -1,19 +1,11 @@
-const sql = require('mssql');
+import * as sql from 'mssql';
+import * as path from 'path';
 
-const config = {
-    user: '',
-    password: '',
-    server: '',
-    database: '',
- 
-    options: {
-//        encrypt: true // Use this if you're on Windows Azure
-    }
-};  
+const config = require(path.resolve("./config.json"));
 
 export function getCompanyList(orgId) {
   return new Promise(async function(resolve, reject) {
-    let conn = await sql.connect(config);
+    let conn = await sql.connect(config.db);
     try {
         let result = await conn.request()
         .input('OrganizationID', sql.UniqueIdentifier, orgId)
@@ -21,8 +13,7 @@ export function getCompanyList(orgId) {
         .input('PageSize', sql.Int, 20)
         .output('PageCount', sql.Int)
         .output('RowCount', sql.Int)
-        .execute('dbo.Company_List',
-        {
+        .execute('dbo.Company_List',{
           outFormat: sql.OBJECT
         });
         console.log('query executed');
@@ -35,7 +26,7 @@ export function getCompanyList(orgId) {
         // If conn assignment worked, need to close.
         if (conn) {
           try {
-            await sql.close(conn);// conn.close();
+            await sql.close(conn);
             console.log('connection closed');
           } catch (err) {
             console.log('error closing connection', err);

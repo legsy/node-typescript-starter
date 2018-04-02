@@ -11,7 +11,8 @@
             "program": "${workspaceRoot}/src/server.ts",
             "outFiles": [
                 "${workspaceRoot}/dist/**/*.js"
-            ]
+            ],
+            "preLaunchTask": "build"
         }
     ]
 }

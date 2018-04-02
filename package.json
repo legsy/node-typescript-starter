@@ -14,15 +14,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "7.0.22",
     "body-parser": "^1.18.2",
     "express": "^4.15.3",
     "mssql": "^4.1.0",
-    "nodemon": "1.11.0"
+    "nodemon": "1.11.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/mocha": "2.2.41",
-    "@types/node": "7.0.22",
+    "@types/node": "^7.0.22",
     "eslint": "4.0.0",
     "eslint-config-airbnb-base": "11.2.0",
     "eslint-plugin-import": "2.3.0",
